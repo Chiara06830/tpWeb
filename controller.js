@@ -36,7 +36,6 @@ function Pencil(ctx, drawing, canvas) {
 		drawing.shapeArray.set(uuid, this.currentShape)
 		drawing.paint(ctx, canvas);
 		updateShapeList(uuid, this.currentShape)
-		console.log(uuid)
 		document.getElementById("remove" + uuid).onclick = (event) => remove(drawing, event.currentTarget.id.substring(6), ctx, canvas)
 		// this.currentShape.paint(ctx);
 	}.bind(this)

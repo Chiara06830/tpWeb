@@ -38,12 +38,11 @@ function updateShapeList(index, shape) {
 function toDom(shape, index) {
     if (shape && typeof shape === 'object') {
         let innerHtml = `<li id="liRemove${index}">`
+        innerHtml += `<button type="button" class="btn btn-default remove" id="remove${index}"></button>`
         if (shape.constructor === Rectangle)
-            innerHtml += `<span style="color:${shape.color}"> </span> Rectangle`
+            innerHtml += `<span style="color:${shape.color}"> </span> Rectangle (${shape.startX}, ${shape.startY}, ${shape.startX+shape.width}, ${shape.startY+shape.height})</li>`
         else if (shape.constructor === Line)
-            innerHtml += `<span style="color:${shape.color}"> </span> Line`
-        innerHtml += `<button type="button" class="btn btn-default remove" id="remove${index}"></li>`
+            innerHtml += `<span style="color:${shape.color}"> </span> Line (${shape.startX}, ${shape.startY}, ${shape.endX}, ${shape.endY})</li>`
         return innerHtml
     }
 }
-
